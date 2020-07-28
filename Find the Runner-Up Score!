@@ -1,0 +1,35 @@
+"""Given the participants' score sheet for your University Sports Day, you are required to find the runner-up score. You are given  scores. Store them in a list and find the score of the runner-up.
+
+Input Format
+
+The first line contains . The second line contains an array   of  integers each separated by a space.
+
+Constraints
+
+Output Format
+
+Print the runner-up score.
+
+Sample Input 0
+
+5
+2 3 6 6 5
+Sample Output 0
+
+5
+"""
+
+n=int(input())
+ipt=input()
+lst=ipt.split()
+
+max=0
+for i in lst:
+    if int(i)>max:
+        max=int(i)
+min=0
+for j in lst:
+    if int(j)>min and max>int(j):
+        min=int(j)
+
+print(min)
