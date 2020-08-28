@@ -1,2 +1,2 @@
 # Python-codes
-solutions of hackerrank problems
+a dump of all small python codes
