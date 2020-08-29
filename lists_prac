@@ -1,0 +1,83 @@
+***there are 7 operations:- 1.insert 2.append. 3.reverse 4.print 5.pop 6.sort 7.remove that have to be performed on the list. The user inputs the number of operations to be 
+done. The output should have operations one after the other***
+
+def ap(l):
+    x=int(input("enter el to append"))
+    l.append(x)
+    for i in range(0,5):
+        l.append(int(input("enter el to append")))
+    print("append block ends")
+    print(l)
+def ins(l):
+    x=int(input("enter item"))
+    y=int(input("enter index"))
+    l.insert(y,x)
+    print(l)
+def pr(l):
+    print("this is print",l)
+def rem(l):
+    x=int(input("enter item to remove"))
+    l.remove(x)
+def po(l):
+    l.pop()
+    print("last element popped")
+def sort(l):
+    l.sort()
+    print("sort",l)
+def rev(l):
+    print("reverse:")
+    l.reverse()
+    print(l)
+
+def lt_7(a,l,b):
+    if(a==1) and b==0:
+        ap(l)
+    elif(a==2) and b==0:
+        ap(l)
+        ins(l)
+    elif(a==3) and b==0:
+        ap(l)
+        ins(l)
+        pr(l)
+    elif(a==4) and b==0:
+        ap(l)
+        ins(l)
+        rem(l)
+        pr(l)
+    elif(a==5) and b==0:
+        ap(l)
+        ins(l)
+        rem(l)
+        po(l)
+        pr(l)
+    elif(a==6) and b==0:
+        ap(l)
+        ins(l)
+        rem(l)
+        po(l)
+        sort(l)
+        pr(l)
+    
+    else:
+        for i in range(0,b):
+            ap(l)
+            ins(l)
+            rem(l)
+            po(l)
+            sort(l)
+            pr(l)
+            rev(l)
+        
+n=int(input("enter number of commands"))
+
+lst=list()
+if n>=7:  
+    d=int(n/7)
+    print("d is:",d)
+    x=n-(d*7)
+    print("x is:",x)
+    lt_7(x,lst,d)
+    lt_7(x,lst,0)
+else:
+    d=0
+    lt_7(n,lst,d)
