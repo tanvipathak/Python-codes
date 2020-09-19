@@ -1,0 +1,16 @@
+In this assignment you will read through and parse a file with text and numbers. You will extract all the numbers in the file and compute the sum of the numbers.
+- Python for everybody (coursera)
+Univeristy of Michigan
+
+import re
+sums=0
+fl=open('cn.txt')
+for line in fl:
+    x=line
+    y=re.findall('[0-9]+',x)
+    if(len(y)>0):
+        y = list(map(int, y))
+        sums=sums+sum(y)
+print (sums)
+    
+    
