@@ -1,0 +1,44 @@
+The client sends a string to server, the server returns the number of vowels and the vowels involved
+
+SERVER SIDE-
+
+import socket
+
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+mysock.bind((socket.gethostname(),1024))
+mysock.listen(5)
+while True:
+    clt,adr=mysock.accept()
+    print(f"Connection to {adr} established")
+    strn=clt.recv(1024).decode()
+    v=dict()
+    for vowel in 'aeiou':
+        count=strn.count(vowel)
+        v[vowel]=count    
+    
+    val=str(sum(v.values()))
+    l= ''
+    for x,y in v.items():
+        if(y>0):
+            l+=x
+        
+    clt.send(val.encode())
+    clt.send(l.encode())
+    mysock.close()
+
+
+CLIENT SIDE
+
+import socket
+
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+mysock.connect((socket.gethostname(),1024))
+st=input("enter string:")
+mysock.send(st.encode())
+print("total number and the vowels are")
+msg=mysock.recv(1024).decode()
+print(msg,'\n')
+
+
+
+
